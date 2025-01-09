@@ -11,9 +11,17 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  background-color: white;
   background-image: url("./imgs3/background.png");
-  background-size: cover;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
   background-position: center;
+}
+
+@media (max-width: 768px) {
+  body {
+    background-size: 100% auto;
+  }
 }
 
 .world {
