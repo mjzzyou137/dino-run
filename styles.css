@@ -50,6 +50,17 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  text-align: center;
+  white-space: nowrap;
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .start-screen {
+    font-size: 4.5vmin;
+    width: 90%;
+    white-space: normal;
+  }
 }
 
 .hide {
