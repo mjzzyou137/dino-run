@@ -9,17 +9,24 @@ const JUMP_SPEED = 0.45;
 const GRAVITY = 0.0015;
 const DINO_FRAME_COUNT = 4;
 const FRAME_TIME = 200;
+const JUMP_FORWARD_SPEED = 0.018 ;
+const RETURN_SPEED = 0.01;
 
 let isJumping;
 let dinoFrame;
 let currentFrameTime;
 let yVelocity;
+let xPosition;
+let isReturning;
 export function setupDino() {
   isJumping = false;
+  isReturning = false;
   dinoFrame = 0;
   currentFrameTime = 0;
   yVelocity = 0;
+  xPosition = 1;
   setCustomProperty(dinoElem, "--bottom", 0);
+  setCustomProperty(dinoElem, "--left", xPosition);
 
   document.removeEventListener("keydown", onJump);
   document.addEventListener("keydown", onJump);
@@ -43,7 +50,17 @@ export function setDinoLose() {
 function handleRun(delta, speedScale) {
   if (isJumping) {
     dinoElem.src = `imgs3/dino-stationary.png`;
+    xPosition += JUMP_FORWARD_SPEED * delta * speedScale;
+    setCustomProperty(dinoElem, "--left", xPosition);
     return;
+  }
+
+  if (xPosition > 1) {
+    isReturning = true;
+    xPosition = Math.max(1, xPosition - RETURN_SPEED * delta * speedScale);
+    setCustomProperty(dinoElem, "--left", xPosition);
+  } else {
+    isReturning = false;
   }
 
   if (currentFrameTime >= FRAME_TIME) {
@@ -68,7 +85,6 @@ function handleJump(delta) {
 }
 
 function onJump(e) {
-  console.log(e);
   if ((e.code !== "Space" && e.type !== "click") || isJumping) return;
 
   yVelocity = JUMP_SPEED;

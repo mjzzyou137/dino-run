@@ -4,7 +4,7 @@ import {
   getCustomProperty,
 } from "./updateCustomProperty.js";
 
-const SPEED = 0.07;
+const SPEED = 0.05;
 const CACTUS_INTERVAL_MIN = 2000;
 const CACTUS_INTERVAL_MAX = 8000;
 const worldElem = document.querySelector("[data-world]");
