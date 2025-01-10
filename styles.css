@@ -12,10 +12,11 @@ body {
   align-items: center;
   min-height: 100vh;
   background-color: white;
-  background-image: url("./imgs3/background.png");
+  background-image: url("./imgs3/background.jpg");
   background-size: 100% auto;
   background-repeat: no-repeat;
   background-position: center;
+  /* background-size: cover; */
 }
 
 @media (max-width: 768px) {
