@@ -16,7 +16,6 @@ body {
   background-size: 100% auto;
   background-repeat: no-repeat;
   background-position: center;
-  /* background-size: cover; */
 }
 
 @media (max-width: 768px) {
@@ -41,6 +40,8 @@ body {
   overflow: hidden;
   position: relative;
   zoom: 1.2;
+  padding-top: 20%;
+  margin-top: -10%;
 }
 
 .score {
@@ -84,7 +85,7 @@ body {
   --left: 0;
   position: absolute;
   width: 300%;
-  bottom: 15%;
+  bottom: 0%;
   left: calc(var(--left) * 1%);
 }
 
@@ -94,12 +95,12 @@ body {
   position: absolute;
   left: calc(var(--left) * 1%);
   height: 30%;
-  bottom: calc(var(--bottom) * 1% + 15%);
+  bottom: calc(var(--bottom) * 1% + 0%);
 }
 
 .cactus {
   position: absolute;
   left: calc(var(--left) * 1%);
   height: 30%;
-  bottom: 15%;
+  bottom: 0%;
 }

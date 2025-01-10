@@ -9,8 +9,8 @@ const JUMP_SPEED = 0.45;
 const GRAVITY = 0.0015;
 const DINO_FRAME_COUNT = 4;
 const FRAME_TIME = 200;
-const JUMP_FORWARD_SPEED = 0.018 ;
-const RETURN_SPEED = 0.01;
+const JUMP_FORWARD_SPEED = 0.025 ;
+const RETURN_SPEED = 0.02;
 
 let isJumping;
 let dinoFrame;

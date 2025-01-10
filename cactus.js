@@ -4,7 +4,7 @@ import {
   getCustomProperty,
 } from "./updateCustomProperty.js";
 
-const SPEED = 0.05;
+const SPEED = 0.04;
 const CACTUS_INTERVAL_MIN = 2000;
 const CACTUS_INTERVAL_MAX = 8000;
 const worldElem = document.querySelector("[data-world]");
@@ -43,7 +43,7 @@ export function getCactusRects() {
 function createCactus() {
   const cactus = document.createElement("img");
   cactus.dataset.cactus = true;
-  const cactuses = ["imgs3/cactus.png", "imgs3/cactus3.png"];
+  const cactuses = ["imgs3/cactus.png", "imgs3/cactus3.png", "imgs3/cactus2.png"];
   cactus.src = cactuses[Math.floor(Math.random() * cactuses.length)];
   cactus.classList.add("cactus");
   setCustomProperty(cactus, "--left", 100);
