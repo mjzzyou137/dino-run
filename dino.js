@@ -11,6 +11,8 @@ const DINO_FRAME_COUNT = 4;
 const FRAME_TIME = 200;
 const JUMP_FORWARD_SPEED = 0.03;
 const RETURN_SPEED = 0.02;
+const MAX_X_POSITION = 90;
+const MIN_X_POSITION = 10;
 
 let isJumping;
 let dinoFrame;
@@ -18,13 +20,14 @@ let currentFrameTime;
 let yVelocity;
 let xPosition;
 let isReturning;
+
 export function setupDino() {
   isJumping = false;
   isReturning = false;
   dinoFrame = 0;
   currentFrameTime = 0;
   yVelocity = 0;
-  xPosition = 10;
+  xPosition = MIN_X_POSITION;
   setCustomProperty(dinoElem, "--bottom", 0);
   setCustomProperty(dinoElem, "--left", xPosition);
 
@@ -54,13 +57,18 @@ function handleRun(delta, speedScale) {
   if (isJumping) {
     dinoElem.src = `imgs3/dino-stationary.png`;
     xPosition += JUMP_FORWARD_SPEED * delta * speedScale;
+    
+    if (xPosition >= MAX_X_POSITION) {
+      xPosition = MIN_X_POSITION;
+    }
+    
     setCustomProperty(dinoElem, "--left", xPosition);
     return;
   }
 
-  if (xPosition > 10) {
+  if (xPosition > MIN_X_POSITION) {
     isReturning = true;
-    xPosition = Math.max(10, xPosition - RETURN_SPEED * delta * speedScale);
+    xPosition = Math.max(MIN_X_POSITION, xPosition - RETURN_SPEED * delta * speedScale);
     setCustomProperty(dinoElem, "--left", xPosition);
   } else {
     isReturning = false;
