@@ -20,4 +20,4 @@ export function updateGround(delta, speedScale) {
       incrementCustomProperty(ground, "--left", 600)
     }
   })
-}
+} 

@@ -42,6 +42,7 @@ body {
   zoom: 1.2;
   padding-top: 20%;
   margin-top: -10%;
+  margin-bottom: -5%;
 }
 
 .score {
@@ -85,7 +86,7 @@ body {
   --left: 0;
   position: absolute;
   width: 300%;
-  bottom: 0%;
+  bottom: 0;
   left: calc(var(--left) * 1%);
 }
 
