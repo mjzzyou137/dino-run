@@ -9,7 +9,7 @@ const JUMP_SPEED = 0.45;
 const GRAVITY = 0.0015;
 const DINO_FRAME_COUNT = 4;
 const FRAME_TIME = 200;
-const JUMP_FORWARD_SPEED = 0.025 ;
+const JUMP_FORWARD_SPEED = 0.025;
 const RETURN_SPEED = 0.02;
 
 let isJumping;
@@ -29,9 +29,12 @@ export function setupDino() {
   setCustomProperty(dinoElem, "--left", xPosition);
 
   document.removeEventListener("keydown", onJump);
-  document.addEventListener("keydown", onJump);
   document.removeEventListener("click", onJump);
+  document.removeEventListener("touchstart", onJump);
+  
+  document.addEventListener("keydown", onJump);
   document.addEventListener("click", onJump);
+  document.addEventListener("touchstart", onJump, { passive: true });
 }
 
 export function updateDino(delta, speedScale) {
@@ -85,8 +88,11 @@ function handleJump(delta) {
 }
 
 function onJump(e) {
-  if ((e.code !== "Space" && e.type !== "click") || isJumping) return;
-
+  e.preventDefault();
+  
+  if (isJumping) return;
+  if (e.type === "keydown" && e.code !== "Space") return;
+  
   yVelocity = JUMP_SPEED;
   isJumping = true;
 }
