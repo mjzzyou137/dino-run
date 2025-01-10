@@ -91,7 +91,7 @@ body {
 
 .dino {
   --bottom: 0;
-  --left: 5;
+  --left: 10;
   position: absolute;
   left: calc(var(--left) * 1%);
   height: 30%;

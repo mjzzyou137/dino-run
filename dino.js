@@ -24,7 +24,7 @@ export function setupDino() {
   dinoFrame = 0;
   currentFrameTime = 0;
   yVelocity = 0;
-  xPosition = 5;
+  xPosition = 10;
   setCustomProperty(dinoElem, "--bottom", 0);
   setCustomProperty(dinoElem, "--left", xPosition);
 
@@ -58,9 +58,9 @@ function handleRun(delta, speedScale) {
     return;
   }
 
-  if (xPosition > 5) {
+  if (xPosition > 10) {
     isReturning = true;
-    xPosition = Math.max(5, xPosition - RETURN_SPEED * delta * speedScale);
+    xPosition = Math.max(10, xPosition - RETURN_SPEED * delta * speedScale);
     setCustomProperty(dinoElem, "--left", xPosition);
   } else {
     isReturning = false;
